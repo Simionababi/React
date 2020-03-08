@@ -62,7 +62,6 @@ class App extends Component {
       );
     }
 
-    //ask about css module on button
     return (
       <div className={classes.App}>
         <Cockpit
