@@ -15,10 +15,28 @@ class Persons extends Component {
   //   console.log("[Persons.js] componentWillUpdate");
   // }
 
+  componentWillUnmount() {
+    console.log("[Persons.js] componentWillUnmount");
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     console.log("[Persons.js] shouldComponentUpdate");
-    return true;
+    console.log(
+      "next props:",
+      nextProps.persons,
+      "this props:",
+      this.props.persons
+    );
+    console.log(nextProps.perosns != this.props.perosns);
+
+    if (nextProps.perosns !== this.props.perosns) {
+      console.log("here");
+      return true;
+    } else {
+      return false;
+    }
   }
+
   getSnapshotBeforeUpdate() {
     console.log("[Persons.js] getSnapshotBeforeUpdate");
     return { message: "Snapshot!" };
